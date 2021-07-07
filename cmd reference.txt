@@ -1,0 +1,25 @@
+py -m venv env
+env\Scripts\activate
+pip install flask
+set FLASK_APP=app.py
+flask run
+type deactivate to get out of virtual environment
+
+
+
+
+
+
+
+
+--Data--
+1.male=1, female=0
+2.age
+3.education(1-some high school,2-high school/ged,3-some college/vocational school,4-college)
+4.currentSmoker(0=nonSmoker, 1=smoker)
+5.cigsPerDay
+6.BPMeds(0--not on blood pressure medication, 1--blood pressure medications)
+7.prevalentStroke(0/1)
+8.prevalentHyp(0/1)
+9.diabetes(0-no,1-yes)
+10.totChol(total cholestrol level)
