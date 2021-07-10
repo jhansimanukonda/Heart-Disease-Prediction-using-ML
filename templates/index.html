@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Heart Disease Prediction</title>
+<link type="text/css" rel="stylesheet" href="index.css/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style><!--
+		body{
+		background-image:url('static/image.jpeg');
+		background-repeat:no-repeat;
+		background-attachment:fixed;
+		background-size:cover;
+		}
+	.button_css{
+		color:#494949 !important;
+		text-transform:uppercase;
+		text-decoration:none;
+		background: #ffffff;
+		padding:20px;
+		border:4px solid #494949 !important;
+		display:inline-block;
+		transition:all 0.4s ease 0s;
+		}
+	.button_css:hover{
+		color:#ffffff !important;
+		background:#f6b93b;
+		border-color: #f6b93b !important;
+		transition: all 0.4s ease0s;
+		}-->
+</style>
+</head>
+<body>
+<div class="container">
+<center>
+<br>
+	<br>
+		<br>
+			<br>
+<form action="{{url_for('predict')}}"method="post">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Enter values of heart features</h1>
+
+<input type="text" name="male" placeholder="male" required="required"/>
+<input type="text" name="age" placeholder="age" required="required"/>
+<input type="text" name="cigsPerDay" placeholder="cigsPerDay" required="required"/>
+<br>
+<input type="text" name="prevalentStroke" placeholder="prevalentStroke" required="required"/>
+<input type="text" name="prevalentHyp" placeholder="prevalentHyp" required="required"/>
+<input type="text" name="diabetes" placeholder="diabetes" required="required"/>
+<br>
+<input type="text" name="totChol" placeholder="totChol" required="required"/>
+<input type="text" name="sysBP" placeholder="sysBP" required="required"/>
+<input type="text" name="diaBP" placeholder="diaBP" required="required"/>
+<br>
+<input type="text" name="BMI" placeholder="BMI" required="required"/>
+<input type="text" name="heartRate" placeholder="heartRate" required="required"/>
+<input type="text" name="glucose" placeholder="glucose" required="required"/>
+<br>
+<!--<input type="text" name="TenYearCHD" placeholder="TenYearCHD" required="required"/> -->
+<br>
+
+<div class="button_cont" align="center"><a class="button_css" href="" target="_blank" rel="nofollow noopener">
+<button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict Heart Disease</strong></button></a>
+</div>
+</form>
+</center>
+<div>
+<center>
+<p><h1 style="color:white;">{{ prediction_text }}</h1></p>
+</center>
+</div>
+</div>
+</body>
+</html>
+
+
