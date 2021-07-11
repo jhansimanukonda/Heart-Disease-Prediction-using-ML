@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Heart Disease Prediction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins';
+}
+body{
+
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	background-image: url("static/image.jpeg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.container{
+	max-width: 700px;
+	width: 100%;
+	padding: 25px 30px;
+}
+.container .title{
+	font-size: 25px;
+	font-weight: 500;
+	position: relative;
+}
+.container .title::before{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 30px;
+}
+.container form .user-details{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 80px 10px 80px 10px;
+}
+form .user-details .input-box{
+	margin-bottom: 15px;
+	margin: 10px 10px 12px 10px;
+	width: calc(100% / 2 - 20px);
+}
+.user-details .input-box input{
+	height: 30px;
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding-left: 15px;
+	font-size: 16px;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+	border-color: #9b59b6;
+}
+form .button{
+	height: 45px;
+}
+form .button input{
+	height: 100%;
+	width: 100%;
+	outline: none;
+	color: #fff;
+	border: none;
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 5px;
+	letter-spacing: 1px;
+	background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+form .button input:hover{
+	background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+@media (max-width: 584px){
+	.container{
+		max-width: 100%;
+	}
+	form .user-details .input-box{
+		margin-bottom: 15px;
+		width: 100%;
+	}
+	.container form .user-details{
+		max-height: 300px;
+		overflow-y: scroll;
+	}
+	.user-details::-webkit-scrollbar{
+		width: 0;
+	}
+		
+}
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-height: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+   .container .title{
+	font-size: 50px;
+	font-weight: 500;
+}
+	  .container{
+	max-width: 100%;
+	width: 100%;
+	padding: 40px 50px;
+	}
+	.container form .user-details{
+		max-height: 100%;
+		overflow-y: scroll;
+	}
+	.user-details .input-box input{
+	height: 60px;
+	width: 100%;
+	}
+}
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+  .container .title{
+	font-size: 60px;
+	font-weight: 500;
+}
+	  .container{
+	max-width: 100%;
+	width: 100%;
+	padding: 40px 50px;
+	}
+	.container form .user-details{
+		max-height: 100%;
+		overflow-y: scroll;
+	}
+	.user-details .input-box input{
+	height: 90px;
+	width: 100%;
+	}
+}
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="title">Enter your Health Details</div>
+	<form action="{{url_for('predict')}}" method="post">
+	<div class="user-details">
+		<div class="input-box">
+			<input type="text" name="male" placeholder="male" required="required"/>
+		</div>
+		<div class="input-box">
+			<input type="text" name="age" placeholder="age" required="required"/>
+		</div>
+		<div class="input-box">
+			<input type="text" name="cigsPerDay" placeholder="cigsPerDay" required="required"/>
+		</div>
+		<div class="input-box">
+			<input type="text" name="prevalentStroke" placeholder="prevalentStroke" required="required"/>
+		</div>
+		<div class="input-box">
+			<input type="text" name="prevalentHyp" placeholder="prevalentHyp" required="required"/>
+		</div>
+		<div class="input-box">
+			<input type="text" name="diabetes" placeholder="diabetes" required="required"/>
+		</div>
+		<div class="input-box">
+			<input type="text" name="totChol" placeholder="totChol" required="required"/>
+		</div>
+		<div class="input-box">
+			<input type="text" name="sysBP" placeholder="sysBP" required="required"/>
+		</div>
+		<div class="input-box">
+			<input type="text" name="diaBP" placeholder="diaBP" required="required"/>
+		</div>
+		<div class="input-box">
+			<input type="text" name="BMI" placeholder="BMI" required="required"/>
+		</div>
+		<div class="input-box">
+			<input type="text" name="heartRate" placeholder="heartRate" required="required"/>
+		</div>
+		<div class="input-box">
+			<input type="text" name="glucose" placeholder="glucose" required="required"/>
+		</div>
+		<div class="button">
+			<input type="submit" value="Predict Heart Disease">
+			</div>
+			</div>
+	</form>
+<center>
+<p><h1 style="color:white">{{ prediction_text }}</h1></p>
+</center>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
